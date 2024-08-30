@@ -1,0 +1,19 @@
+@if (quizService.questions().length > 0) {
+
+<h4 data-testing="questions-count" class="mb-5 fw-bold">Question
+  <span>{{ quizService.currentQuestionIndex()+1 }}</span>/<span>{{ quizService.questions().length }}</span>
+</h4>
+
+<app-question />
+
+<div class="answers">
+  @for (answer of quizService.currentQuestionAnswers(); track $index) {
+    <app-answer [ans]="answer" [answerIndex]="$index"/>
+  }
+</div>
+
+<button data-testing="next-button" [class.show-btn]="quizService.currentAnswer()" (click)="onNextQuestion()" class="btn btn-dark btn-lg text-uppercase w-25 py-3" >
+  {{ quizService.isLastQuestion() ? 'Show Score' : 'Next Question' }}
+</button>
+
+}

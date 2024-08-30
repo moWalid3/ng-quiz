@@ -1,0 +1,42 @@
+@import "../../../styles.scss";
+
+:host {
+  display: flex;
+  text-align: center;
+  width: 100%;
+  color: white;
+  border-radius: 3px;
+  margin-bottom: 1.5rem;
+  height: 5rem;
+  border-radius: 2px;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: $main-darker;
+  span {
+    display: flex;
+    background-color: inherit;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    width: 5rem;
+    font-size: 2rem;
+  }
+  p {
+    font-size: 1.3rem;
+    margin: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    align-items: center;
+    color: black;
+    width: 100%;
+    background-color: $main-light;
+    transition: $transition;
+    margin: 2px 2px 2px 0;
+  }
+  &:hover {
+    p {
+      background-color: #f1dec6;
+    }
+  }
+}

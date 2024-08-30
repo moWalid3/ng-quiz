@@ -1,1 +1,61 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
+@import 'bootstrap/scss/bootstrap';
+
+
+$main: #FFEC9E;
+$main-light: #fdf4ee;
+$main-dark: #FFBB70;
+$main-darker: #ED9455;
+$transition: .2s;
+
+body {
+  font-family: "SUSE", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+@mixin btn($color) {
+  background-color: $color !important;
+  color: if(lightness($color) > 50%, black, white) !important;
+  transition: $transition;
+  &:hover{
+    background-color: darken($color, 10%) !important;
+  }
+  &:active {
+    border-color: white !important;
+  }
+}
+
+$colors: (
+  'main': $main,
+  'main-light': $main-light,
+  'main-dark': $main-dark,
+  'main-darker': $main-darker,
+);
+
+@each $name, $color in $colors {
+  .btn-#{$name} {
+    @include btn($color);
+  }
+
+  .bg-#{$name} {
+    background-color: $color !important;
+  }
+
+  .text-#{$name} {
+    color: $color !important;
+  }
+}
+
+.transition {
+  transition: $transition;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.btn {
+  transition: $transition;
+  &:active {
+    border-color: white !important;
+  }
+}
